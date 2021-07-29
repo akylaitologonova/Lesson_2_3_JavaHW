@@ -18,6 +18,6 @@ public class BankAccount {
             throw new LimitException("На балансе недостаточно средтсв", sum);
         }
         amount -= sum;
-        System.out.println("Снимаем " + sum + "сом");
+        System.out.println("Снято " + sum + "сом");
     }
 }

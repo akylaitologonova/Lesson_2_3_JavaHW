@@ -15,7 +15,8 @@ public class Main {
             } catch (LimitException e) {
                 System.out.println(e.getMessage());
                 bankAccount.withDraw((int) bankAccount.getAmount());
-                System.out.println("Доступный баланс для снятия: " + bankAccount.getAmount());
+                System.out.println("Доступный баланс для снятия: " +
+                        bankAccount.getAmount());
                 break;
             }
         }
