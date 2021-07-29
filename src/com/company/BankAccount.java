@@ -12,15 +12,12 @@ public class BankAccount {
         return amount;
     }
 
-    public void withDraw(int sum) throws LimitException {
-        for (int i = 0; ; i++) {
-            if (amount - sum < 0) {
-                throw new LimitException("На балансе недостаточно средтсв", sum);
-            } else {
-                System.out.println("Баланс: " + getAmount() + "\n Снято: " + sum
-                        + "\n Остаток после снятия: " + (amount -= sum));
-            }
 
+    public void withDraw(int sum) throws LimitException {
+        if (sum > amount) {
+            throw new LimitException("На балансе недостаточно средтсв", sum);
         }
+        amount -= sum;
+        System.out.println("Снимаем " + sum + "сом");
     }
 }
