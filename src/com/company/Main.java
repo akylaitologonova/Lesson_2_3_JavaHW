@@ -2,7 +2,7 @@ package com.company;
 
 public class Main {
 
-    public static void main(String[] args) throws LimitException {
+    public static void main(String[] args)  {
         BankAccount bankAccount = new BankAccount();
         bankAccount.deposit(20000);
 
@@ -14,7 +14,11 @@ public class Main {
                 bankAccount.withDraw(6000);
             } catch (LimitException e) {
                 System.out.println(e.getMessage());
-                bankAccount.withDraw((int) bankAccount.getAmount());
+                try {
+                    bankAccount.withDraw((int) bankAccount.getAmount());
+                } catch (LimitException limitException) {
+                    limitException.printStackTrace();
+                }
                 System.out.println("Доступный баланс для снятия: " +
                         bankAccount.getAmount());
                 break;
